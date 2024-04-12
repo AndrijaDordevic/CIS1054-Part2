@@ -1,0 +1,47 @@
+header{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 1.5em;
+    color: rgb(253, 247, 247);
+    background-color: rgb(24, 24, 24);
+    height: 70px;
+    padding-left: 50px;
+}
+
+h1{
+    font-size: 1.5em;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    color: rgb(253, 247, 247);
+    background-color: rgb(24, 24, 24);
+    background-color:
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav li {
+    display: inline-block; /* Display items horizontally */
+    margin-right: 20px; /* Add spacing between items */
+    
+}
+
+nav a {
+    text-decoration: none;
+    color: rgb(253, 247, 247);
+}
+
+nav {
+    position: fixed;
+    right: 100px;
+} 
+
+nav a:hover {
+    color: #a7a4a4; /* Change color on hover */
+}
