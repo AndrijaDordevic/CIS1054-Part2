@@ -3,6 +3,7 @@
     color: rgb(253, 247, 247);
     background-color: rgb(24, 24, 24);
     height: 50px;
+    padding-top: 25px;
     padding-left: 50px;
 }
 
@@ -46,36 +47,3 @@ body{
     color: #a7a4a4; 
 }
 
-#menu-navbar ul {
-    list-style: none;
-    padding: 0;
-}
-
-#menu-navbar li {
-    display: inline-block; 
-    margin-right: 20px; 
-    
-}
-
-#menu-navbar a {
-    text-decoration: none;
-    color: rgb(253, 247, 247);
-}
-
-#menu-navbar {
-    font-size: 1.5em;
-    display: flex;
-    justify-content: center;    
-} 
-
-#menu-navbar a:hover {
-    color: #a7a4a4; 
-}
-
-#sub-header{    
-    font-size: 1.5em;
-    color: rgb(253, 247, 247);
-    background-color: rgb(24, 24, 24);
-    height: 50px;
-    padding-left: 50px;
-}
