@@ -1,12 +1,13 @@
+{% extends "layout.html" %}
+{% block content %}
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bakery Name - Order</title>
+    <title>{% block title %}Bakery Name - Order{% endblock %}</title>
     <link rel="stylesheet" href="assets/styles.css">
 </head>
 
 <div>
-    <header id="main-header">Bakery Name</header>
     <nav id="main-navbar">
         <ul>
             <li><a href="index.php">Home</a></li>
@@ -15,3 +16,4 @@
         </ul>
     </nav>
 </div>
+{% endblock %}
