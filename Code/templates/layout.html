@@ -2,10 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!--Support legacy browsers-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bakery Name</title>
+    <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
-    <header id="main-header">Bakery Name</header>
+
+    <header>
+        {% block header %}
+            <h1>Bakery Name</h1>
+        {% endblock %}
+    </header>
+
+    {% block menu %}
+    {% endblock %}
+
+    {% block content %}
+    {% endblock %}
+    <script src="" async defer></script>
+
 </body>
 </html>
