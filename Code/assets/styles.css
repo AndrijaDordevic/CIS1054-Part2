@@ -63,12 +63,21 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 100px;
 }
 
 .image-container {
     display: flex;
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
+    justify-content: center;
+    align-items: center; 
     
+}
+
+#email{
+    width: 99%;
+}
+
+#contact-head{
+    color: Black;
+    display: flex;
+    justify-content: flex-start;
 }

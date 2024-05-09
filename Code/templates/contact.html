@@ -18,9 +18,6 @@
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
-        h1 {
-            text-align: center;
-        }
         label {
             display: block;
             margin-bottom: 5px;
@@ -55,13 +52,13 @@
         </ul>
     </nav>
     <div class="container">   
-        <h1>Contact Us</h1>
+        <h1 id = "contact-head">Contact Us</h1>
         <form action="submit.php" method="POST">
             <label for="name">Your Name:</label>
             <input type="text" id="name" name="name" placeholder="Enter your name" required>
             
             <label for="email">Your Email:</label>
-            <input type="text" id="email" name="email" placeholder="Enter your email address" required>
+            <input type="email" id="email" name="email" placeholder="Enter your email address" required>
             
             <label for="message">Your Message:</label>
             <textarea id="message" name="message" rows="5" placeholder="Enter your message" required></textarea>
