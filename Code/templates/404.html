@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block content %}
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Whoops! Page not found</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="assets/styles.css">
+</head>
+
+<body class = "error-body">
+    <h1 id ="error-head">Whoops! Page Not Found!</h1>
+    <div class="image-container">
+        <img src="/ProjectPart2/Code/images/ErrorImage.jpg" alt="Bakery 404 Error Image">
+    </div>
+    <nav id="main-navbar">
+        <ul>
+            <li><a href="index.php">Back To Home</a></li>
+
+        </ul>
+    </nav>
+</body>
+{% endblock %}

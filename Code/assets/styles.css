@@ -51,10 +51,24 @@ body{
 #main-navbar {
     font-size: 1.5em;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 } 
 
 #main-navbar a:hover {
     color: #a7a4a4; 
+}
+
+#error-head{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 100px;
+}
+
+.image-container {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    
 }
