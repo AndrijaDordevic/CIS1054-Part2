@@ -23,6 +23,7 @@
             margin-bottom: 5px;
         }
         input[type="text"],
+        input[type="email"],
         textarea {
             width: 100%;
             padding: 10px;
@@ -43,6 +44,11 @@
         input[type="submit"]:hover {
             background-color: #45a049;
         }
+        #thank-you {
+            display: none;
+            color: green;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
@@ -52,8 +58,9 @@
         </ul>
     </nav>
     <div class="container">   
-        <h1 id = "contact-head">Contact Us</h1>
-        <form action="submit.php" method="POST">
+        <h1 id="contact-head">Contact Us</h1>
+        <div id="thank-you">Thank you for contacting us!</div>
+        <form id="contact-form" action="submit.php" method="POST">
             <label for="name">Your Name:</label>
             <input type="text" id="name" name="name" placeholder="Enter your name" required>
             
@@ -63,8 +70,16 @@
             <label for="message">Your Message:</label>
             <textarea id="message" name="message" rows="5" placeholder="Enter your message" required></textarea>
             
-            <input type="submit" value="Submit">
+            <input type="submit" id="submit-btn" value="Submit">
         </form>
     </div>
+
+    <script>
+        document.getElementById("contact-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            document.getElementById("contact-form").reset();
+            document.getElementById("thank-you").style.display = "block";
+        });
+    </script>
 </body>
 {% endblock %}

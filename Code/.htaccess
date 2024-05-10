@@ -1,4 +1,4 @@
 php_flag display_startup_errors on
 php_flag display_errors on
 
-ErrorDocument 404 /CIS1054-PART2/Code/404.php
+ErrorDocument 404 /ProjectPart2/Code/404.php
