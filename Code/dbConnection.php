@@ -1,40 +1,62 @@
-<?php
-define('DB_SERVER', 'localhost');
-define('DB_USERNAME', 'Kim');
-define('DB_PASSWORD', '2po');
-define('DB_DATABASE', 'bakery');
+<?php 
 
-// Connect to MySQL database
-$conn = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
+ class Db {
+    protected static $connection;
 
-// Check connection
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
-
-// Query menu items
-$sql = "SELECT CategoryName, ItemName, Price FROM MenuCategories 
-        INNER JOIN MenuItems ON MenuCategories.CategoryID = MenuItems.CategoryID";
-$result = mysqli_query($conn, $sql);
-
-// Display menu items
-if (mysqli_num_rows($result) > 0) {
-    $current_category = "";
-    while ($row = mysqli_fetch_assoc($result)) {
-        if ($row["CategoryName"] != $current_category) {
-            echo "<div class='menu-category'>";
-            echo "<h3>" . $row["CategoryName"] . "</h3>";
-            echo "<ul>";
-            $current_category = $row["CategoryName"];
+    public function connect() {
+        // Try and connect to the database
+        if(!isset(self::$connection)) {
+            // Load configuration as an array. Use the actual location of your configuration file
+            // Put the configuration file outside of the document root
+            $config = parse_ini_file('./config.ini'); 
+            self::$connection = new mysqli($config['username'],$config['password'],$config['dbname'],$config['server']);
         }
-        echo "<li>" . $row["ItemName"] . " - $" . $row["Price"] . "</li>";
+    
+        // If connection was not successful, handle the error
+        if(self::$connection === false) {
+            // Handle error - notify administrator, log to a file, show an error screen, etc.
+            return false;
+        }
+        return self::$connection;
     }
-    echo "</ul>";
-    echo "</div>";
-} else {
-    echo "0 results";
-}
 
-// Close connection
-mysqli_close($conn);
-?>
+    public function query($query) {
+        // Connect to the database
+        $connection = $this -> connect();
+        
+        // Query the database
+        $result = $connection -> query($query);
+        
+        return $result;
+    }
+
+    /**
+     * Fetch rows from the database (SELECT query)
+     */
+    public function select($query) {
+        $rows = array();
+        $result = $this -> query($query);
+        if($result === false) {
+            return false;
+        }
+        while ($row = $result -> fetch_assoc()) {
+            $rows[] = $row;
+        }
+        return $rows;
+    }
+    /**
+     * Fetch the last error from the database
+     */
+    public function error() {
+        $connection = $this -> connect();
+        return $connection -> error;
+    }
+
+    /**
+     * Quote and escape value for use in a database query
+     */
+    public function quote($value) {
+        $connection = $this -> connect();
+        return "'" . $connection -> real_escape_string($value) . "'";
+    }
+}
