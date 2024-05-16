@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Example of using sanitized input in a SQL query (assuming you're using PDO)
     $dsn = 'mysql:host=localhost;dbname=bakery';
-    $username = 'username';
+    $username = 'Kim';
     $password = 'Adgkmkc1.';
 
     try {
