@@ -3,10 +3,8 @@
 function sanitize_input($input) {
     // Remove leading and trailing whitespaces
     $input = trim($input);
-    
     // Remove HTML tags
     $input = strip_tags($input);
-    
     // Escape special characters
     $input = htmlspecialchars($input, ENT_QUOTES | ENT_HTML5, 'UTF-8');
     
@@ -20,9 +18,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = sanitize_input($_POST['email']);
     $message = sanitize_input($_POST['message']);
 
-    // Now you can use $name, $email, $message safely in your application
-
-    // Example of using sanitized input in a SQL query (assuming you're using PDO)
     $dsn = 'mysql:host=localhost;dbname=bakery';
     $username = 'username';
     $password = 'Adgkmkc1.';
