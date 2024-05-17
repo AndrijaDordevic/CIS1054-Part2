@@ -19,8 +19,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $message = sanitize_input($_POST['message']);
 
     $dsn = 'mysql:host=localhost;dbname=bakery';
-    $username = 'username';
-    $password = 'Adgkmkc1.';
+    $username = 'Kim';
+    $password = '2po';
 
     try {
         $dbh = new PDO($dsn, $username, $password);
