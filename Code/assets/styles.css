@@ -5,6 +5,7 @@
     height: 50px;
     padding-top: 25px;
     padding-left: 50px;
+    font-family: Georgia, serif;
 }
 
 h1{
@@ -12,6 +13,7 @@ h1{
     justify-content: flex-start;
     font-size: 1.5em;
     padding-left: 50px;
+    font-family: Georgia, serif;
 }
 
 body{
@@ -19,6 +21,7 @@ body{
     padding: 0;
     color: rgb(253, 247, 247);
     background-color: rgb(24, 24, 24);
+    font-family: Georgia, serif;
 }
 
 #main-navbar ul {
@@ -63,6 +66,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: Georgia, serif;
 }
 
 .image-container {
@@ -78,8 +82,22 @@ body{
 
 #contact-head{
     color: Black;
+    font-family: Georgia, serif;
 }
 
 #order-head {
     color: black; 
+}
+
+.about-us-container{
+    width: 40%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Georgia, serif;
+}
+
+#h1-about{
+    justify-content: center;
+    display: flex;
 }
