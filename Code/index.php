@@ -23,7 +23,7 @@
         ],
         [
             'id'            => 4,
-            'image'         => 'assets/images/appliepie.jpg',
+            'image'         => 'assets/images/applepie.jpg',
             'name'          => 'Apple Pie',
             'ingredients'   => ''
         ],
