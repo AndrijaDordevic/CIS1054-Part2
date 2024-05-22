@@ -1,37 +1,44 @@
 {% extends "layout.html" %}
+
 {% block content %}
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Baked Gold - Menu{% endblock %}</title>
     <link rel="stylesheet" href="assets/styles.css">
+    <title>{% block title %}Baked Gold - Menu{% endblock %}</title>
 </head>
 <body>
-<div> 
-    <nav id="main-navbar">
-        <ul>
-            <li><a href="index.php">Home</a></li>
-            <li><a href="menu.php">Menu</a></li>
-            <li><a href="contact.php">Contact Us</a></li>
-            <li><a href="order.php">Order</a></li>
-            <li><a href="aboutus.php">About Us</a></li>
-        </ul>
-    </nav>
-</div>
+    <div>
+        <nav id="main-navbar">
+            <ul>
+                <li><a href="index.php">Home</a></li>
+                <li><a href="menu.php">Menu</a></li>
+                <li><a href="contact.php">Contact Us</a></li>
+                <li><a href="order.php">Order</a></li>
+                <li><a href="aboutus.php">About Us</a></li>
+            </ul>
+        </nav>
 
-<main class="cards">
+    </div>
     {% for item in menuitems %}
         <div class="card">
             <div class="card-header">
-                <h3>{{ item.name }}</h3>
+                <h3>{{ item.ItemName }}</h3>
             </div>
             <div class="card-body">
-                <img src="{{ item.image }}" class="img" alt="{{ item.name }}" style="width: 200px; height: auto;">
-                <p>Ingredients: {{ item.ingredients }}</p> 
+                <img src="{{ item.image }}" class="img" alt="{{ item.ItemName }}" style="width: 200px; height: auto;">
+                <p>Ingredients: {{ item.ingredients }}</p>
+                <p>Price: ${{ item.Price }}</p>
+                {% if item.note %}
+                    <p>Note: {{ item.note }}</p>
+                {% endif %}
             </div>
         </div>
     {% endfor %}
 </main>
 
-</body>
+</body>    
+</html>
 {% endblock %}
