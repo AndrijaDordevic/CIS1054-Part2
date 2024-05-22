@@ -1,10 +1,5 @@
 <?php 
 
-/**
- * Database wrapper for a MySQL with PHP tutorial
- * 
- * @license MIT License
- */
 
 class dbConnection {
     // The database connection
