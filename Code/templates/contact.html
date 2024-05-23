@@ -4,62 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background-color: rgb(24, 24, 24);
-        }
-        .container {
-            max-width: 600px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        label {
-            display: block;
-            margin-bottom: 5px;
-        }
-        input[type="text"],
-        input[type="email"],
-        textarea {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
-        input[type="submit"] {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-        input[type="submit"]:hover {
-            background-color: #45a049;
-        }
-        #thank-you {
-            display: none;
-            color: green;
-            font-weight: bold;
-        }
-        label[for="name"] {
-        color: black; 
-        }
-        label[for="email"] {
-        color: black; 
-        }
-        label[for="message"] {
-        color: black; 
-        }
-    </style>
+    <link rel="stylesheet" href="assets/styles.css">
+
 </head>
+
 <body>
     <nav id="main-navbar">
         <ul>
@@ -77,10 +25,11 @@
             <li><a href="aboutus.php">About Us</a></li>
         </ul>
     </nav>
-    <div class="container">   
-        <h1 id="contact-head">Contact Us</h1>
+    <div class="forms-container">   
+
         <div id="thank-you">Thank you for contacting us!</div>
         <form id="contact-form" action="submit.php" method="POST">
+            <h1 id="contact-head">Contact Us</h1>
             <label for="name">Your Name:</label>
             <input type="text" id="name" name="name" placeholder="Enter your name" required>
             
