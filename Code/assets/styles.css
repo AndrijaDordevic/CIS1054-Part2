@@ -132,6 +132,8 @@ body{
 .card-header h3 {
     margin: 0 0 10px; /* Margin below the header */
     color: black;
+    justify-content: center;
+    display: flex;
 }
 
 .card-body p {
@@ -153,4 +155,6 @@ body{
 
 #black-text{
     color: Black;
+    justify-content: center;
+    display: flex;
 }
