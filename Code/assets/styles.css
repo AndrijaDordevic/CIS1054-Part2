@@ -61,6 +61,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: rgb(24, 24, 24);
+    width: 100%;
 }
 
 #main-navbar a:hover {
@@ -130,6 +132,7 @@ body {
     margin: 0 auto;
     padding: 20px;
     font-family: Georgia, serif;
+    background-color: rgb(24, 24, 24);
 }
 
 #h1-about {
@@ -270,9 +273,10 @@ footer {
     left: 0;
     width: 100%;
     text-align: center;
-    background-color: #333;
+    background-color: (24, 24, 24);
     color: #fff;
     padding: 20px; 
+    z-index: 1000;
 }
 
 .footer-container {
@@ -281,6 +285,7 @@ footer {
     align-items: baseline;
     gap: 50px; 
     font-family: Georgia, serif;
+    background-color: rgb(24, 24, 24);
 }
 
 .footer-item {
@@ -317,4 +322,27 @@ footer {
 
 #thank-you {
     color:Green;
+}
+
+.about-us {
+    background-image: url('images/BakeryBackground.png');
+    background-size: cover;
+    background-position: center;
+    z-index: 100;
+}   
+
+h3 {
+    font-size: 1.5em;
+}
+
+#bakery-name {
+    display: flex;
+    justify-content: flex-start;
+    font-size: 1.5em;
+    padding-left: 50px;
+    font-family: Georgia, serif;
+    width: 100%;
+    background-color: rgb(24, 24, 24);
+    margin: 0;
+    padding-top: 25px;
 }
