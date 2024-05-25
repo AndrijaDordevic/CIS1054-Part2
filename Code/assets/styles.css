@@ -134,6 +134,7 @@ body {
 #h1-about {
     justify-content: center;
     display: flex;
+    padding-right: 60px;
 }
 
 /* Container for the cards */
