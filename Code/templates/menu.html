@@ -36,11 +36,13 @@
                     <h3>{{ item.ItemName }}</h3>
                 </div>
                 <div class="card-body">
-                    <img src="{{ item.image }}" class="img" alt="{{ item.ItemName }}" style="width: 200px; height: auto;">
+                    <a href="details.php?id={{ item.ItemID }}&name={{ item.ItemName }}&price={{ item.Price }}&image={{ item.image }}&ingredients={{ item.ingredients }}&note={{ item.note }}&details={{ item.details }}">
+                        <img src="{{ item.image }}" class="img" alt="{{ item.ItemName }}" style="width: 200px; height: auto;">
+                    </a>
                     <p id="black-text">Ingredients: {{ item.ingredients }}</p>
                     <p id="black-text">Price: ${{ item.Price }}</p>
-                    
                     {% if item.note %}
+
                         <p id="black-text">Note: {{ item.note }}</p>
                     {% endif %}
                     <form action="add_to_favourites.php" method="post">
