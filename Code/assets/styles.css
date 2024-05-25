@@ -16,6 +16,11 @@ h1 {
     font-family: Georgia, serif;
 }
 
+h2 {
+    justify-content: center;
+    display: flex;
+}
+
 body {
     margin: 0;
     padding: 0;
