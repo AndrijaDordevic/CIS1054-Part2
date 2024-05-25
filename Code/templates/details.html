@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/styles.css">
+    <title>{% block title %}Baked Gold - Menu{% endblock %}</title>
+</head>
+<body>
+    <div>
+        <nav id="main-navbar">
+            <ul>
+                <li><a href="index.php">Home</a></li>
+                <li class="dropdown">
+                    <a href="menu.php" class="dropbtn">Menu</a>
+                    <div class="dropdown-content">
+                        <a href="menu.php">Sandwiches</a>
+                        <a href="menu.php">Desserts</a> 
+                        <a href="menu.php">Bread</a>
+                        <a href="menu.php">Dough</a>
+                    </div>
+                </li>
+                <li><a href="order.php">Order</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="container">
+        {% for item in menuitems %}
+            <div class="card">
+                <div class="card-header">
+                    <h3>{{ item.ItemName }}</h3>
+                </div>
+                <div class="card-body">
+                    <a href="details.php?id={{ item.id }}"> <!-- Pass the id of the item -->
+                        <img src="{{ item.image }}" class="img" alt="{{ item.ItemName }}" style="width: 200px; height: auto;">
+                    </a>
+                    <p id="black-text">Ingredients: {{ item.ingredients }}</p>
+                    <p id="black-text">Price: ${{ item.Price }}</p>
+                    {% if item.note %}
+                        <p id="black-text">Note: {{ item.note }}</p>
+                    {% endif %}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+</body>    
+</html>
+{% endblock %}
