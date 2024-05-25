@@ -5,7 +5,7 @@ require_once __DIR__ . '/dbConnection.php';
 $db = new dbConnection();
 
 //Get the menu items from the database
-$menuitems = $db->select('SELECT ItemID, Price, image, ItemName, ingredients, note FROM menuitems');
+$menuitems = $db->select('SELECT ItemID, Price, image, ItemName, ingredients, note,details FROM menuitems');
 
 //Check if there are any errors
 if ($menuitems === false) {
