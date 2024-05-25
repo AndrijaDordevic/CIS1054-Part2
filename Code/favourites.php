@@ -5,38 +5,30 @@ require_once __DIR__ . '/dbConnection.php';
 // Create a new instance of the dbConnection class
 $db = new dbConnection();
 
-// Get the menu items from the database
-$menuitems = $db->select('SELECT ItemID, Price, image, ItemName, ingredients, note FROM menuitems');
-
-// Check if there are any errors
-if ($menuitems === false) {
-    echo "Error fetching menu items: " . $db->error();
-    exit;
-}
-
 // Initialize $favourites array
 $favourites = array();
 
 // Check if the 'favourites' cookie is set
-if(isset($_COOKIE['favourites'])) {
-    $favourites = json_decode($_COOKIE['favourites'], true);
-    if(!empty($favourites)) {
+if (isset($_COOKIE['favourites'])) {
+    $favouriteItemIds = json_decode($_COOKIE['favourites'], true);
+    if (!empty($favouriteItemIds)) {
         // Prepare and execute the SQL query to fetch favorite items
-        $placeholders = implode(',', array_fill(0, count($favourites), '?'));
-        $types = str_repeat('i', count($favourites));
-        $stmt = $db->Connect()->prepare("SELECT ItemID, Price, image, ItemName, ingredients, note FROM menuitems WHERE ItemID IN ($placeholders)");
-        $stmt->bind_param($types, ...$favourites);
+        $placeholders = implode(',', array_fill(0, count($favouriteItemIds), '?'));
+        $types = str_repeat('i', count($favouriteItemIds));
+        $conn = $db->Connect();
+        $stmt = $conn->prepare("SELECT ItemID, Price, image, ItemName, ingredients, note, details FROM menuitems WHERE ItemID IN ($placeholders)");
+
+        // Bind parameters dynamically
+        $stmt->bind_param($types, ...$favouriteItemIds);
         $stmt->execute();
         $result = $stmt->get_result();
 
-        // Fetch and display favorite items
-        while($row = $result->fetch_assoc()) {
-            echo "<div class='menu-item'>
-                    <h3>" . htmlspecialchars($row['ItemName']) . "</h3>
-                  </div>";
+        // Fetch and store favorite items
+        while ($row = $result->fetch_assoc()) {
+            $favourites[] = $row;
         }
 
-        // Close the statement and connection
+        // Close the statement
         $stmt->close();
     } else {
         echo "No favorite items found.";
