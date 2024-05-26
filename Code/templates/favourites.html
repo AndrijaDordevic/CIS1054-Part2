@@ -43,11 +43,15 @@
                         {% if item.note %}
                             <p id="black-text">Note: {{ item.note }}</p>
                         {% endif %}
+                        <form action="remove_from_favourites.php" method="post">
+                            <input type="hidden" name="ItemID" value="{{ item.ItemID }}">
+                            <button type="submit" class="remove-btn">Remove from Favourites</button>
+                        </form>
                     </div>
                 </div>
             {% endfor %}
         {% else %}
-            <p>No favorite items found.</p>
+            <p>No favourite items found.</p>
         {% endif %}
     </div>
 </body>    
