@@ -5,7 +5,7 @@ require_once __DIR__ . '/dbConnection.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
-
+echo $twig->render('send_favourites.html');
 // Sanitize input
 function sanitize_input($input) {
     $input = trim($input);
@@ -54,15 +54,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         try {
             // Server settings
             $mail->isSMTP();
-            $mail->Host = ''; // Set your SMTP server here
+            $mail->Host = 'smtp.gmail.com'; // Set your SMTP server here
             $mail->SMTPAuth = true;
-            $mail->Username = 'your-email@example.com'; // SMTP username
-            $mail->Password = 'your-email-password'; // SMTP password
+            $mail->Username = 'bakedgold2024@gmail.com'; // SMTP username
+            $mail->Password = 'lsrgfahsnqjjtoak'; // SMTP password
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
             $mail->Port = 587;
 
             // Recipients
-            $mail->setFrom('your-email@example.com', 'Baked Gold');
+            $mail->setFrom('bakedgold2024@gmail.com', 'Baked Gold');
             $mail->addAddress($email);
 
             // Content
@@ -71,7 +71,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $mail->Body = $items;
 
             $mail->send();
-            echo 'Message has been sent';
         } catch (Exception $e) {
             echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
         }

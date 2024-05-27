@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/styles.css">
+    <title>{% block title %}Baked Gold{% endblock %}</title>
+</head>
+
+<body class="send-favourites">
+    <nav id="main-navbar">
+        <ul>
+            <li><a href="index.php">Home</a></li>
+            <li class="dropdown">
+                <a href="menu.php" class="dropbtn">Menu</a>
+                <div class="dropdown-content">
+                    <a href="menu.php">Sandwiches</a>
+                    <a href="menu.php">Desserts</a> 
+                    <a href="menu.php">Bread</a>
+                    <a href="menu.php">Dough</a>
+                </div>
+            </li>
+            <li><a href="order.php">Order</a></li>
+            <li><a href="favourites.php">Favourites</a></li>
+        </ul>
+    </nav>
+</body>
+
+<h1 id="email-sent">Favourites sent successfully.</h1>
+</html>
+
+
+{% endblock %}
