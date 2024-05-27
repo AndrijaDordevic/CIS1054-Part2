@@ -10,7 +10,7 @@
 
     <header>
         {% block header %}
-            <h1>Baked Gold</h1>
+            <h1 id="bakery-name">Baked Gold</h1>
         {% endblock %}
     </header>
 
@@ -20,6 +20,24 @@
     {% block content %}
     {% endblock %}
     <script src="" async defer></script>
+
+    {%block footer %}
+        <div class="footer-container">
+            <div class="footer-item">
+                <ul id="footer-links">
+                    <li><a href="contact.php">Contact Us</a></li>
+                    <li><a href="aboutus.php">About Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-item">
+                <div class="opening-hours">
+                    <p>Opening Hours:</p>
+                    <p>Monday - Friday</p>
+                    <p>08:00 - 16:00</p>
+                </div>
+            </div>
+    </div>
+    {% endblock %}
 
 </body>
 </html>

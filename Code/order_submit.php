@@ -14,9 +14,12 @@ function sanitize_input($input) {
 // Check if form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Sanitize input
-    $name = sanitize_input($_POST['Name']);
-    $email = sanitize_input($_POST['Email']);
-    $message = sanitize_input($_POST['Message']);
+    $orderinfo = sanitize_input($_POST['orderinfo']);
+    $name = sanitize_input($_POST['name']);
+    $mobnum = sanitize_input($_POST['mobnum']);
+    $straddress = sanitize_input($_POST['straddress']);
+    $locality = sanitize_input($_POST['locality']);
+    $postalcode = sanitize_input($_POST['postalcode']);
 
     $dsn = 'mysql:host=localhost;dbname=bakery';
     $username = 'Kim';
@@ -30,22 +33,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Prepare SQL statement with placeholders
-    $stmt = $dbh->prepare("INSERT INTO contact (name, email, message) VALUES (:name, :email, :message)");
+    $stmt = $dbh->prepare("INSERT INTO user_order (OrderInfo, Name, MobNum, StrAddress, Locality, PostalCode) VALUES (:orderinfo, :name, :mobnum, :straddress, :locality, :postalcode)");
 
     // Bind parameters
+    $stmt->bindParam(':orderinfo', $orderinfo);
     $stmt->bindParam(':name', $name);
-    $stmt->bindParam(':email', $email);
-    $stmt->bindParam(':message', $message);
+    $stmt->bindParam(':mobnum', $mobnum);
+    $stmt->bindParam(':straddress', $straddress);
+    $stmt->bindParam(':locality', $locality);
+    $stmt->bindParam(':postalcode', $postalcode);
 
     // Execute the statement
     if ($stmt->execute()) {
-        echo "Message submitted successfully!";
+        $submission_message = "Thank you for contacting us";
     } else {
-        echo "Error submitting message.";
+        $submission_message = "Error submitting message: " . implode(", ", $stmt->errorInfo());
     }
 
-    // Close connection
     $dbh = null;
+    header("Location: order.php?message=" . urlencode($submission_message));
+    exit();
 } else {
     // If form is not submitted, redirect to home page or handle appropriately
     header("Location: index.php");

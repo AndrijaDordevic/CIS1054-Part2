@@ -1,0 +1,11 @@
+{
+    "name": "andrijadorevic/cis1054-part2",
+    "description": "project",
+    "type": "project",
+    "require": {
+        "twig/twig": "^3.10",
+        "phpmailer/phpmailer": "^6.9"
+    },
+    "license": "Apack - 2.0",
+    "minimum-stability": "stable"
+}

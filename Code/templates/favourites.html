@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/styles.css">
+    <title>{% block title %}Baked Gold - Favourites{% endblock %}</title>
+</head>
+<body>
+    <div>
+        <nav id="main-navbar">
+            <ul>
+                <li><a href="index.php">Home</a></li>
+                <li class="dropdown">
+                    <a href="menu.php" class="dropbtn">Menu</a>
+                    <div class="dropdown-content">
+                        <a href="menu.php">Sandwiches</a>
+                        <a href="menu.php">Desserts</a> 
+                        <a href="menu.php">Bread</a>
+                        <a href="menu.php">Dough</a>
+                    </div>
+                </li>
+                <li><a href="order.php">Order</a></li>
+                <li><a href="favourites.php">Favourites</a></li>
+            </ul>
+        </nav>
+    </div>
+    <h2>Your Favourite Items</h2>
+    <div class="container">
+        {% if favourites %}
+            {% for item in favourites %}
+                <div class="card">
+                    <div class="card-header">
+                        <h3>{{ item.ItemName }}</h3>
+                    </div>
+                    <div class="card-body">
+                        <img src="{{ item.image }}" class="img" alt="{{ item.ItemName }}" style="width: 200px; height: auto;">
+                        <p id="black-text">Ingredients: {{ item.ingredients }}</p>
+                        <p id="black-text">Price: €{{ item.Price }}</p>
+                        <p id="black-text">Details: {{ item.details }}</p>
+                        {% if item.note %}
+                            <p id="black-text">Note: {{ item.note }}</p>
+                        {% endif %}
+                        <form action="remove_from_favourites.php" method="post">
+                            <input type="hidden" name="ItemID" value="{{ item.ItemID }}">
+                            <button type="submit" class="remove-btn">Remove from Favourites</button>
+                        </form>
+                    </div>
+                </div>
+            {% endfor %}
+            <form action="send_favourites.php" method="post"> 
+                <label for="email">Send to email:</label>
+                <input type="email" id="email" name="email" required>
+                <button type="submit">Send Favourites</button>
+            </form>
+        {% else %}
+            <p>No favourite items found.</p>
+        {% endif %}
+    </div>
+</body>    
+</html>
+{% endblock %}

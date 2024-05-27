@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us</title>
     <link rel="stylesheet" href="assets/styles.css">
-
 </head>
 
 <body>
@@ -21,16 +20,18 @@
                     <a href="menu.php">Dough</a>
                 </div>
             </li>
-            <li><a href="contact.php">Contact Us</a></li>
             <li><a href="order.php">Order</a></li>
-            <li><a href="aboutus.php">About Us</a></li>
+            <li><a href="favourites.php">Favourites</a></li>
         </ul>
     </nav>
     
     <div class="forms-container">   
-        <form id="contact-form" action="submit.php" method="POST">
+        <form id="contact-form" action="contact_submit.php" method="POST">
             <div id="thank-you">Thank you for contacting us!</div>
             <h1 id="contact-head">Contact Us</h1>
+            <div id="thank-you">
+                <!-- Placeholder for dynamic content -->
+            </div>
             <label for="name">Your Name:</label>
             <input type="text" id="name" name="name" placeholder="Enter your name" required>
             
@@ -41,15 +42,22 @@
             <textarea id="message" name="message" rows="5" placeholder="Enter your message" required></textarea>
             
             <input type="submit" id="submit-btn" value="Submit">
+
         </form>
     </div>
 
     <script>
-        document.getElementById("contact-form").addEventListener("submit", function(event) {
-            event.preventDefault();
-            document.getElementById("contact-form").reset();
-            document.getElementById("thank-you").style.display = "block";
-        });
+        function getUrlParameter(name) {
+            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+            var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+            var results = regex.exec(location.search);
+            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        };
+
+        var messageParam = getUrlParameter('message');
+        if (messageParam === 'Thank you for contacting us') {
+            document.getElementById('thank-you').innerHTML = '<p>Thank you for contacting us!</p>';
+        }
     </script>
 </body>
 {% endblock %}
