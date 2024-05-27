@@ -153,6 +153,7 @@ body {
 /* Each card */
 .card {
     flex: 1 1 calc(30% - 40px); /* 3 columns with space for padding */
+    max-width: 500px;
     box-sizing: border-box; /* Ensure padding and border are included in the width */
     margin-bottom: 20px; /* Space between rows */
     background: white; /* Background color of the card */
@@ -378,4 +379,16 @@ h3 {
 form .email-label {
     color: white; 
     font-weight: bold; 
+}
+
+#send_favourites {
+    justify-content: flex-end;
+    display:flex;
+    margin-right: 160px;
+}
+
+#email-sent {
+    justify-content: center;
+    display: flex;
+    margin-right: 70px;
 }

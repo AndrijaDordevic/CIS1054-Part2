@@ -28,6 +28,13 @@
         </nav>
     </div>
     <h2>Your Favourite Items</h2>
+    <div id="send_favourites">
+        <form action="send_favourites.php" method="post">
+            <label for="email" class="email-label">Send to Email:</label>
+            <input type="email" id="email" name="email" required>
+            <button type="submit">Send</button>
+        </form>
+    </div>
     <div class="container">
         {% if favourites %}
             {% for item in favourites %}
@@ -50,11 +57,8 @@
                     </div>
                 </div>
             {% endfor %}
-            <form action="send_favourites.php" method="post">
-                <label for="email" class="email-label">Send to Email:</label>
-                <input type="email" id="email" name="email" required>
-                <button type="submit">Send</button>
-            </form>
+            
+            
         {% else %}
             <p>No favourite items found.</p>
         {% endif %}

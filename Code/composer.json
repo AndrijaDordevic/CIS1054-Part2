@@ -3,8 +3,8 @@
     "description": "project",
     "type": "project",
     "require": {
-        "twig/twig": "^3.10",
-        "phpmailer/phpmailer": "^6.9"
+        "phpmailer/phpmailer": "^6.9",
+        "twig/twig": "^3.10"
     },
     "license": "Apack - 2.0",
     "minimum-stability": "stable"

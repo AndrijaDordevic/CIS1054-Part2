@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'andrijadorevic/cis1054-part2',
-        'pretty_version' => 'dev-main',
-        'version' => 'dev-main',
-        'reference' => '916f5d6e6af8ce1361ee92923ce4cb8e744a982f',
+        'pretty_version' => 'dev-master',
+        'version' => 'dev-master',
+        'reference' => '34a2f74e369121c17dc3b9362785b448bd0de2a8',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -11,9 +11,9 @@
     ),
     'versions' => array(
         'andrijadorevic/cis1054-part2' => array(
-            'pretty_version' => 'dev-main',
-            'version' => 'dev-main',
-            'reference' => '916f5d6e6af8ce1361ee92923ce4cb8e744a982f',
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
+            'reference' => '34a2f74e369121c17dc3b9362785b448bd0de2a8',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
