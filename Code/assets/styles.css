@@ -147,7 +147,7 @@ body {
     flex-wrap: wrap;
     gap: 20px; /* Adjust the gap between items as needed */
     justify-content: center;
-    padding: 20px; /* Optional padding around the container */
+    padding: 20px; /* padding around the container */
 }
 
 /* Each card */
