@@ -34,15 +34,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // Prepare and execute the SQL query to fetch favorite items
         $placeholders = implode(',', array_fill(0, count($favourites), '?'));
-        $sql = "SELECT ItemID, Price, image, ItemName, ingredients, note FROM menuitems WHERE ItemID IN ($placeholders)";
+        $sql = "SELECT ItemID, Price, image, ItemName, ingredients, details, note FROM menuitems WHERE ItemID IN ($placeholders)";
         $stmt = $dbh->prepare($sql);
         $stmt->execute($favourites);
 
         $items = '';
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             $items .= "<h3>" . htmlspecialchars($row['ItemName']) . "</h3>";
-            $items .= "<p>Price: $" . htmlspecialchars($row['Price']) . "</p>";
+            $items .= "<p>Price: €" . htmlspecialchars($row['Price']) . "</p>";
             $items .= "<p>Ingredients: " . htmlspecialchars($row['ingredients']) . "</p>";
+            $items .= "<p>Details: " . htmlspecialchars($row['details']) . "</p>";
             if (!empty($row['note'])) {
                 $items .= "<p>Note: " . htmlspecialchars($row['note']) . "</p>";
             }
