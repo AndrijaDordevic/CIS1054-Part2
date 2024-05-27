@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $dsn = 'mysql:host=localhost;dbname=bakery';
     $username = 'Kim';
-    $password = '2po';
+    $password = '*81F9E2CEBE63285BC5BF55CC67DDF2C18373E851';
 
     try {
         $dbh = new PDO($dsn, $username, $password);
@@ -30,22 +30,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Prepare SQL statement with placeholders
-    $stmt = $dbh->prepare("INSERT INTO your_table_name (name, email, message) VALUES (:name, :email, :message)");
+    $stmt = $dbh->prepare("INSERT INTO  contact (Name, email, Message) VALUES (:name, :email, :message)");
 
     // Bind parameters
     $stmt->bindParam(':name', $name);
     $stmt->bindParam(':email', $email);
     $stmt->bindParam(':message', $message);
 
-    // Execute the statement
     if ($stmt->execute()) {
-        echo "Message submitted successfully!";
+        $submission_message = "Thank you for contacting us";
     } else {
-        echo "Error submitting message.";
+        $submission_message = "Error submitting message: " . implode(", ", $stmt->errorInfo());
     }
 
-    // Close connection
     $dbh = null;
+    header("Location: contact.php?message=" . urlencode($submission_message));
+    exit();
 } else {
     // If form is not submitted, redirect to home page or handle appropriately
     header("Location: index.php");
