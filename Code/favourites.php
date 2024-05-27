@@ -30,9 +30,7 @@ if (isset($_COOKIE['favourites'])) {
 
         // Close the statement
         $stmt->close();
-    } else {
-        echo "No favorite items found.";
-    }
+    } 
 } else {
     echo "No favorite items found.";
 }
