@@ -5,7 +5,6 @@
     height: 50px;
     padding-top: 25px;
     padding-left: 50px;
-    font-family: Georgia, serif;
 }
 
 html{
@@ -17,7 +16,6 @@ h1 {
     justify-content: flex-start;
     font-size: 1.5em;
     padding-left: 50px;
-    font-family: Georgia, serif;
 }
 
 h2 {
@@ -29,7 +27,6 @@ body {
     margin: 0;
     color: rgb(253, 247, 247);
     background-color: rgb(24, 24, 24);
-    font-family: Georgia, serif;
     overflow-x: hidden; /* Added to hide horizontal overflow */
 }
 
@@ -113,7 +110,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: Georgia, serif;
 }
 
 .image-container {
@@ -128,7 +124,6 @@ body {
 
 #contact-head {
     color: Black;
-    font-family: Georgia, serif;
 }
 
 .about-us-container {
@@ -136,7 +131,6 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
-    font-family: Georgia, serif;
     background-color: rgb(24, 24, 24);
 }
 
@@ -300,7 +294,6 @@ footer {
     justify-content: center; 
     align-items: baseline;
     gap: 50px; 
-    font-family: Georgia, serif;
     background-color: rgb(24, 24, 24);
 }
 
@@ -356,7 +349,6 @@ h3 {
     justify-content: flex-start;
     font-size: 1.5em;
     padding-left: 50px;
-    font-family: Georgia, serif;
     width: 100%;
     background-color: rgb(24, 24, 24);
     margin: 0;
@@ -408,3 +400,6 @@ form .email-label {
     margin-right: 70px;
 }
 
+* {
+    font-family: Georgia, serif;
+}
