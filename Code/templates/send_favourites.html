@@ -9,24 +9,6 @@
     <title>{% block title %}Baked Gold{% endblock %}</title>
 </head>
 
-<body class="send-favourites">
-    <nav id="main-navbar">
-        <ul>
-            <li><a href="index.php">Home</a></li>
-            <li class="dropdown">
-                <a href="menu.php" class="dropbtn">Menu</a>
-                <div class="dropdown-content">
-                    {% for categoryId, categoryName in categoriesMap %}
-                        <a href="menu.php#{{ categoryId }}">{{ categoryName }}</a>
-                    {% endfor %}
-                </div>
-            </li>
-            <li><a href="order.php">Order</a></li>
-            <li><a href="favourites.php">Favourites</a></li>
-        </ul>
-    </nav>
-</body>
-
 <h1 id="email-sent">Favourites sent successfully.</h1>
 </html>
 
