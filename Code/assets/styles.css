@@ -27,11 +27,12 @@ h2 {
 
 body {
     margin: 0;
-    padding-top: 50px;
     color: rgb(253, 247, 247);
     background-color: rgb(24, 24, 24);
     font-family: Georgia, serif;
+    overflow-x: hidden; /* Added to hide horizontal overflow */
 }
+
 
 #main-navbar ul {
     list-style: none;
