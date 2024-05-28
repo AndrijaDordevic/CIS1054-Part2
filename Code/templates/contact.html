@@ -14,10 +14,9 @@
             <li class="dropdown">
                 <a href="menu.php" class="dropbtn">Menu</a>
                 <div class="dropdown-content">
-                    <a href="menu.php">Sandwiches</a>
-                    <a href="menu.php">Desserts</a> 
-                    <a href="menu.php">Bread</a>
-                    <a href="menu.php">Dough</a>
+                    {% for categoryId, categoryName in categoriesMap %}
+                        <a href="menu.php#{{ categoryId }}">{{ categoryName }}</a>
+                    {% endfor %}
                 </div>
             </li>
             <li><a href="order.php">Order</a></li>
@@ -29,9 +28,6 @@
         <form id="contact-form" action="contact_submit.php" method="POST">
             <h1 id="contact-head">Contact Us</h1>
             <div id="thank-you"></div>
-            <div id="thank-you">
-                <!-- Placeholder for dynamic content -->
-            </div>
             <label for="name">Your Name:</label>
             <input type="text" id="name" name="name" placeholder="Enter your name" required>
             

@@ -17,10 +17,9 @@
                 <li class="dropdown">
                     <a href="menu.php" class="dropbtn">Menu</a>
                     <div class="dropdown-content">
-                        <a href="menu.php">Sandwiches</a>
-                        <a href="menu.php">Desserts</a> 
-                        <a href="menu.php">Bread</a>
-                        <a href="menu.php">Dough</a>
+                        {% for categoryId, categoryName in categoriesMap %}
+                            <a href="menu.php#{{ categoryId }}">{{ categoryName }}</a>
+                        {% endfor %}
                     </div>
                 </li>
                 <li><a href="order.php">Order</a></li>
@@ -31,7 +30,7 @@
 
     <div class="home-background"></div>
     <div class="home-overlay">
-        <p>Welcome to BakedGold! Where every bite is a delight! Dive into our world of freshly baked goodness, where passion meets perfection.</p>
+        <p>Welcome to Baked Gold! Where every bite is a delight! Dive into our world of freshly baked goodness, where passion meets perfection.</p>
     </div>
 </main>
 
