@@ -33,5 +33,4 @@ foreach ($menuitems as $item) {
 
 // Give the data to the HTML file
 echo $twig->render('menu.html', ['menuItemsByCategory' => $menuItemsByCategory, 'categoriesMap' => $categoriesMap]);
-
 ?>
