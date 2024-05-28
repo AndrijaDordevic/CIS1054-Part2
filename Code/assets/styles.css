@@ -147,26 +147,36 @@ body {
     flex-wrap: wrap;
     gap: 20px; /* Adjust the gap between items as needed */
     justify-content: center;
-    padding: 20px; /* Optional padding around the container */
+    padding: 20px; /* padding around the container */
 }
 
 /* Each card */
 .card {
-    flex: 1 1 calc(30% - 40px); /* 3 columns with space for padding */
-    max-width: 500px;
-    box-sizing: border-box; /* Ensure padding and border are included in the width */
-    margin-bottom: 20px; /* Space between rows */
-    background: white; /* Background color of the card */
+    width: 400px;
+    height: 500px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    background: white;
     border: 1px solid #ccc;
     border-radius: 8px;
-    padding: 20px; /* Padding inside the card */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    text-align: center; /* Center aligns the content horizontally */
+}
+
+
+.cards-container {
+    display: flex; /* or inline-block */
+    flex-wrap: wrap;
 }
 
 .card img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 0 auto 20px; /* Center the image and add bottom margin */
+    justify-content: center;
+    display: flex;
+    margin-left: 80px;
+    margin-bottom: 40px;
 }
 
 .card-header h3 {
@@ -392,3 +402,4 @@ form .email-label {
     display: flex;
     margin-right: 70px;
 }
+

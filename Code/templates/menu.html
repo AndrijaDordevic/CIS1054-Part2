@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="assets/styles.css">
     <title>{% block title %}Baked Gold - Menu{% endblock %}</title>
 </head>
+
 <body>
     <div>
         <nav id="main-navbar">
@@ -30,30 +31,38 @@
     </div>
 
     <div class="container">
-        {% for item in menuitems %}
-            <div class="card">
-                <div class="card-header">
-                    <h3>{{ item.ItemName }}</h3>
-                </div>
-                <div class="card-body">
-                    <a href="details.php?id={{ item.ItemID }}&name={{ item.ItemName }}&price={{ item.Price }}&image={{ item.image }}&ingredients={{ item.ingredients }}&note={{ item.note }}&details={{ item.details }}">
-                        <img src="{{ item.image }}" class="img" alt="{{ item.ItemName }}" style="width: 200px; height: auto;">
-                    </a>
-                    <p id="black-text">Ingredients: {{ item.ingredients }}</p>
-                    <p id="black-text">Price: €{{ item.Price }}</p>
-                    {% if item.note %}
-
-                        <p id="black-text">Note: {{ item.note }}</p>
-                    {% endif %}
-                    <form action="add_to_favourites.php" method="post">
-                        <input type="hidden" name="item_id" value="{{ item.ItemID }}">
-                        <button type="submit" class="favorite-btn">Add to Favourites</button>
-                    </form>
+        {% for categoryId, items in menuItemsByCategory %}
+            <div class="category-section">
+                <h2>{{ categoriesMap[categoryId] }}</h2> <!-- Display the category name -->
+                <div class="cards-container">
+                    {% for item in items %}
+                        <div class="card">
+                            <div class="card-header">
+                                <h3>{{ item.ItemName }}</h3>
+                            </div>
+                            <div class="card-body">
+                                <a href="details.php?id={{ item.ItemID }}&name={{ item.ItemName }}&price={{ item.Price }}&image={{ item.image }}&ingredients={{ item.ingredients }}&note={{ item.note }}&details={{ item.details }}">
+                                    <img src="{{ item.image }}" class="img" alt="{{ item.ItemName }}" style="width: 200px; height: 200px;",>
+                                </a>
+                                <p id="black-text">Ingredients: {{ item.ingredients }}</p>
+                                <p id="black-text">Price: €{{ item.Price }}</p>
+                                {% if item.note %}
+                                    <p id="black-text">Note: {{ item.note }}</p>
+                                {% endif %}
+                                <form action="add_to_favourites.php" method="post">
+                                    <input type="hidden" name="item_id" value="{{ item.ItemID }}">
+                                    <button type="submit" class="favorite-btn">Add to Favourites</button>
+                                </form>
+                            </div>
+                        </div>
+                    {% endfor %}
                 </div>
             </div>
         {% endfor %}
     </div>
-
+    
+    
+    
 </body>    
 </html>
 {% endblock %}
