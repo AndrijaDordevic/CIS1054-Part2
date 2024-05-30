@@ -1,21 +1,27 @@
 <?php
 require_once __DIR__ . "/bootstrap.php";
+require_once __DIR__ . "/dbConnection.php";
 
-//Get item details from menu
-if (isset($_GET['id'], $_GET['name'], $_GET['price'], $_GET['image'], $_GET['ingredients'], $_GET['note'], $_GET['details'])) {
-    $itemDetails = [
-        'id' => $_GET['id'],
-        'name' => $_GET['name'],
-        'price' => $_GET['price'],
-        'image' => $_GET['image'],
-        'ingredients' => $_GET['ingredients'],
-        'note' => $_GET['note'],
-        'details' => $_GET['details']
-    ];
+$db = new dbConnection();
 
+//Check if the item ID is provided
+if (isset($_GET['id'])) {
+    $itemId = intval($_GET['id']);
+    
+    //Fetch item details from the database
+    $query = "SELECT ItemID, ItemName, Price, image, ingredients, note, details FROM menuitems WHERE ItemID = $itemId";
+    $result = $db->select($query);
+    
+    //Check if the query was successful and if the item exists
+    if ($result !== false && count($result) > 0) {
+        $itemDetails = $result[0];
 
-    echo $twig->render('details.html', ['item' => $itemDetails]);
+        //Render the details page with the use of Twig
+        echo $twig->render('details.html', ['item' => $itemDetails]);
+    } else {
+        echo "Item not found.";
+    }
 } else {
-    echo "Item details not provided.";
+    echo "Item Details not provided.";
 }
 ?>
