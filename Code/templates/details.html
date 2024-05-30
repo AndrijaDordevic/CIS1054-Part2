@@ -11,25 +11,23 @@
 </head>
 <body>
     <div class="container">
-        {% for item in menuitems %}
-            <div class="card">
-                <div class="card-header">
-                    <h3>{{ item.ItemName }}</h3>
-                </div>
-                <div class="card-body">
-                    <a href="details.php?id={{ item.id }}"> <!-- Pass the id of the item -->
-                        <img src="{{ item.image }}" class="img" alt="{{ item.ItemName }}" style="width: 200px; height: auto;">
-                    </a>
-                    <p id="black-text">Ingredients: {{ item.ingredients }}</p>
-                    <p id="black-text">Price: €{{ item.Price }}</p>
-                    {% if item.note %}
-                        <p id="black-text">Note: {{ item.note }}</p>
-                    {% endif %}
-                </div>
+        <div class="card">
+            <div class="card-header">
+                <h3>{{ item.name }}</h3>
             </div>
-        {% endfor %}
+            <div class="card-body">
+                <img src="{{ item.image }}" class="img" alt="{{ item.name }}" style="width: 200px; height: auto;">
+                <p id="black-text">Ingredients: {{ item.ingredients }}</p>
+                <p id="black-text">Price: ${{ item.price }}</p>
+                {% if item.note %}
+                    <p id="black-text">Note: {{ item.note }}</p>
+                {% endif %}
+                {% if item.details %}
+                    <p id="black-text">Details: {{ item.details }}</p>
+                {% endif %}
+            </div>
+        </div>
     </div>
-
-</body>    
+</body>
 </html>
 {% endblock %}
