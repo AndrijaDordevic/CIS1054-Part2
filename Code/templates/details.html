@@ -7,18 +7,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/styles.css">
-    <title>{% block title %}Baked Gold - Menu{% endblock %}</title>
+    <title>{% block title %}Baked Gold - Item Details{% endblock %}</title>
 </head>
 <body>
     <div class="container">
         <div class="card">
             <div class="card-header">
-                <h3>{{ item.name }}</h3>
+                <h3>{{ item.ItemName }}</h3>
             </div>
             <div class="card-body">
-                <img src="{{ item.image }}" class="img" alt="{{ item.name }}" style="width: 200px; height: auto;">
+                <img src="{{ item.image }}" class="img" alt="{{ item.ItemName }}" style="width: 200px; height: auto;">
                 <p id="black-text">Ingredients: {{ item.ingredients }}</p>
-                <p id="black-text">Price: ${{ item.price }}</p>
+                <p id="black-text">Price: €{{ item.Price }}</p>
                 {% if item.note %}
                     <p id="black-text">Note: {{ item.note }}</p>
                 {% endif %}
